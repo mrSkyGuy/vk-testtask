@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto&family=Comfortaa&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
@@ -29,8 +29,15 @@
   <main class="main">
     <div class="account">
       <div class="account__title">Личный кабинет</div>
-      <div class="account__balance">Баланс 340₽</div>
-      <div class="account__basket">Вы купили 2 книги на сумму 280₽</div>
+      <div class="account__info">
+        <div class="account__balance">
+          Баланс <span class="balance__count">340</span>₽
+        </div>
+        <div class="account__basket">
+          Вы купили <span class="basket__books-count">2 книги</span> 
+          на сумму <span class="basket__sum">280</span>₽
+        </div>
+      </div>
     </div>
     <div class="catalog">
       <div class="catalog__title">Доступные книги</div>
