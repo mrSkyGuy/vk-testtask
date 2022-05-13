@@ -1,5 +1,8 @@
+$header-height: 60px;
+
 body {
   background-color: rgb(25, 25, 25);
+  padding-top: $header-height;
 
   // Scrollbar styling
   &::-webkit-scrollbar {
@@ -26,6 +29,7 @@ body {
   }
 }
 
+
 // ---------------------------------------HEADER----------------------------------------
 .header {
   position: fixed;
@@ -34,7 +38,7 @@ body {
 
   width: 100%;
   padding: 0 5px;
-  height: 60px;
+  height: $header-height;
 }
 
 .header__container {
@@ -89,4 +93,110 @@ body {
 }
 
 
-// -------------------------------------------------------------------------------------
+// ----------------------------------------MAIN-----------------------------------------
+.main {
+  width: 100%;
+  height: calc(100vh - 60px);  // When i use $header-height variable the error "invalid property value" is returned 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account {
+  position: fixed;
+  right: 16px;
+  top: $header-height + 16px;
+}
+
+.catalog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.catalog__title {
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto';
+}
+
+.catalog__books {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  gap: 8px;
+  padding: 10px;
+
+  // Scrollbar styling
+  &::-webkit-scrollbar {
+    width: 5px;
+    transition: .4s;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    // background-color: #8C43EA;
+    background-color: rgb(50, 50, 50);
+    border-radius: 20px;
+
+    &:active {
+      background-color: rgb(70, 70, 70);
+    }
+    &:hover {
+      body::-webkit-scrollbar {
+        // width: 8px;
+        background-color: red;
+      }
+    }
+  }
+}
+
+.catalog__book {
+  min-height: 80px;
+  background-color: #8C43EA;
+  padding: 10px 20px;
+  border-radius: 15px;
+
+  display: flex;
+  min-width: 450px;
+  max-width: 500px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.book__info {
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.book__buy {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+
+  background-color: rgba(25, 25, 25, 0.6);
+  color: #fff;
+  font-family: 'Roboto';
+  box-shadow: 0 0 10px 1px #000;
+  transition: .4s;
+  transition-delay: 0s;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(25, 25, 25, 0.45);
+    transform: scale(1.05);
+  }
+  &:active {
+    background-color: rgba(25, 25, 25, 0.8);
+    transform: scale(1);
+    box-shadow: 0 0 3px 1px #000;
+  }
+}

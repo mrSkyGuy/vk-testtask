@@ -1,5 +1,6 @@
 body {
   background-color: #191919;
+  padding-top: 60px;
 }
 
 body::-webkit-scrollbar {
@@ -92,5 +93,148 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
 
 .title__part.part-2 {
   font-size: 28px;
+}
+
+.main {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.account {
+  position: fixed;
+  right: 16px;
+  top: 76px;
+}
+
+.catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.catalog__title {
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: white;
+  font-family: 'Roboto';
+}
+
+.catalog__books {
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 70vh;
+  gap: 8px;
+  padding: 10px;
+}
+
+.catalog__books::-webkit-scrollbar {
+  width: 5px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.catalog__books::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.catalog__books::-webkit-scrollbar-thumb {
+  background-color: #323232;
+  border-radius: 20px;
+}
+
+.catalog__books::-webkit-scrollbar-thumb:active {
+  background-color: #464646;
+}
+
+.catalog__books::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
+  background-color: red;
+}
+
+.catalog__book {
+  min-height: 80px;
+  background-color: #8C43EA;
+  padding: 10px 20px;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 450px;
+  max-width: 500px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.book__info {
+  font-family: 'Roboto';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+
+.book__buy {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(25, 25, 25, 0.6);
+  color: #fff;
+  font-family: 'Roboto';
+  -webkit-box-shadow: 0 0 10px 1px #000;
+          box-shadow: 0 0 10px 1px #000;
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  cursor: pointer;
+}
+
+.book__buy:hover {
+  background-color: rgba(25, 25, 25, 0.45);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.book__buy:active {
+  background-color: rgba(25, 25, 25, 0.8);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-box-shadow: 0 0 3px 1px #000;
+          box-shadow: 0 0 3px 1px #000;
 }
 /*# sourceMappingURL=style.css.map */
