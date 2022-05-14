@@ -135,6 +135,11 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
   font-weight: bold;
 }
 
+.account__info {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
 .catalog {
   display: -webkit-box;
   display: -ms-flexbox;

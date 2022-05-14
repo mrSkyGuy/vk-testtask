@@ -124,6 +124,10 @@ body {
   font-weight: bold;
 }
 
+.account__info {
+  align-self: flex-start;   
+}
+
 .catalog {
   display: flex;
   align-items: center;
