@@ -268,14 +268,13 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
 }
 
 .catalog__book {
-  min-height: 80px;
   background-color: #8C43EA;
   padding: 10px 20px;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 450px;
+  min-width: 250px;
   max-width: 500px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;

@@ -181,25 +181,50 @@ const height = document.documentElement.clientHeight
 adaptive(width, height)
 
 function adaptive(width, height) {
+    // Данная функция нужна для того, чтобы изменять содержимое страницы, 
+    // в соответствии с размером окна
+
+    // function clickOutside(event) {
+    //     // Если личный кабинет показан, то при клике вне, сворачивать его
+    //     // Функция наполовину работает, но почему то листенер не удаляется при размере окна ">1130"
+    //     // Поэтому я отключил ее пока что
+
+    //     if (
+    //             (!account.contains(event.target) && !burger.contains(event.target)) 
+    //             && !account.classList.contains("hidden")
+    //         ) {
+    //         account.classList.add("hidden")
+    //         burger.classList.remove("change")
+    //     }
+    // }
+
     if (width <= 1130) {
+        // Прячем личный кабинет и показывает бургер
         if (!account.classList.contains("hidden")) account.classList.add("hidden")
         burger.style.display = "flex"
         burger.classList.remove("change")
         account.style.marginRight = "40px"
+
+        // document.addEventListener("click", clickOutside)
     } else if (width > 1130) {
+        // На ПК-версии показываем личный кабинет и убираем бургер
         account.classList.remove("hidden")
         burger.style.display = "none"
         account.style.marginRight = "0"
+
+        // document.removeEventListener("click", clickOutside)  // <---- Почему то не работает
     }
 }
 
 window.addEventListener("resize", () => {
+    // Применяем функцию adaptive, если размер окна изменился
     const width = document.documentElement.clientWidth
     const height = document.documentElement.clientHeight
     adaptive(width, height)
 })
 
 burger.addEventListener("click", () => {
+    // При нажатии на бургер появляется личный кабинет
     account.classList.toggle("hidden")
     burger.classList.toggle("change")
 })
