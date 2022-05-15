@@ -23,10 +23,13 @@ const books = [ // Книги на складе
 
 
 // --------------------------Заполняем данные личного кабинета--------------------------
-const balanceCount = document.querySelector(".balance__count")
-const accountBasket = document.querySelector(".account__basket")
+const account = document.querySelector(".account")
+const accountInfo = account.querySelector(".account__info")
+const balanceCount = account.querySelector(".balance__count")
+const accountBasket = account.querySelector(".account__basket")
 const basketBooksCount = accountBasket.querySelector(".basket__books-count")
 const basketTotalSum = accountBasket.querySelector(".basket__total-sum")
+const errorMessage = document.querySelector(".error-message")
 
 updateAccount()
 
@@ -55,6 +58,14 @@ function updateAccount() {
                 )(basket)
             }</span>₽
         `
+
+        // На всякий случай меняем значение свойства top, чтобы если высота личного 
+        // кабинета изменилась, то и сообщение об ошибке сдвинулось
+        errorMessage.style.top = `calc(
+            ${getComputedStyle(account).getPropertyValue("top")}
+            + ${getComputedStyle(account).getPropertyValue("height")} 
+            + 8px
+        )`
     }
 }
 
@@ -94,6 +105,35 @@ Array.from(bookBuyButtons).map(bookBuyButton => {
 
         bookId = catalogBook.getAttribute("data-id")
         book = books.filter(b => b.id == bookId)[0]
+
+        if ((book.price > balance) || (book.amount <= 0)) {
+            // Если сообщение уже появилось ранее
+            if (errorMessage.style.display === "block") return
+
+            errorMessage.textContent = 
+                (book.price > balance) ? "Недостаточно средств" :
+                (book.amount <= 0) ? "Книги закончились" : 
+                "Ошибка"
+
+            errorMessage.style.display = "block"
+            setTimeout(() => {  
+                // Timeout с задержкой в 1ms нужен для того, чтобы блок сообщения 
+                // сначала появился и только потом выдвинулся справа
+                // Иначе все произойдет синхронно, и анимации не будет видно
+                errorMessage.style.transform = "translateX(0%)"
+            }, 1)
+
+            setTimeout(() => {
+                errorMessage.style.transform = "translateX(100%)"
+                
+                // Ждем, пока закончится анимация, и пропадаем
+                setTimeout(() => {
+                    errorMessage.style.display = "none"
+                }, 400)  // 400ms - длительность анимации  
+            }, 3000)
+
+            return
+        }
 
         data.id = bookId
         data.name = book.name

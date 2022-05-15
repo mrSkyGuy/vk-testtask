@@ -128,6 +128,23 @@ body {
   align-self: flex-start;   
 }
 
+.error-message {
+  position: fixed;
+  z-index: 99;
+  right: 16px;
+
+  color: rgb(25, 25, 25);
+  background-color: #c343ea;
+  border-radius: 20px;
+  padding: 24px; 
+
+  font-family: 'Roboto';
+  font-size: 20px;
+  transition: .4s ease-in-out;
+  transform: translateX(calc(16px + 100%));
+  display: none;
+}
+
 .catalog {
   display: flex;
   align-items: center;

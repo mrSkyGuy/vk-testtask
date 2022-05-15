@@ -140,6 +140,23 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
       align-self: flex-start;
 }
 
+.error-message {
+  position: fixed;
+  z-index: 99;
+  right: 16px;
+  color: #191919;
+  background-color: #c343ea;
+  border-radius: 20px;
+  padding: 24px;
+  font-family: 'Roboto';
+  font-size: 20px;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  -webkit-transform: translateX(calc(16px + 100%));
+          transform: translateX(calc(16px + 100%));
+  display: none;
+}
+
 .catalog {
   display: -webkit-box;
   display: -ms-flexbox;
