@@ -110,6 +110,7 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
 }
 
 .account {
+  opacity: 1;
   position: fixed;
   right: 16px;
   top: 76px;
@@ -124,10 +125,62 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
       -ms-flex-align: center;
           align-items: center;
   gap: 16px;
-  background-color: #8C43EA;
+  background-color: #8b43eac6;
   border-radius: 30px;
   padding: 24px;
   font-family: 'Roboto';
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.show-account {
+  width: 35px;
+  height: 33px;
+  position: fixed;
+  right: 16px;
+  z-index: 9;
+  top: 76px;
+  cursor: pointer;
+}
+
+.show-account .burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6px;
+}
+
+.show-account .burger .bar1, .show-account .burger .bar2, .show-account .burger .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #7b27e9;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.show-account .burger.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+          transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.show-account .burger.change .bar2 {
+  opacity: 0;
+}
+
+.show-account .burger.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+          transform: rotate(45deg) translate(-8px, -8px);
 }
 
 .account__title {
@@ -145,7 +198,7 @@ body::-webkit-scrollbar-thumb:hover body::-webkit-scrollbar {
   z-index: 99;
   right: 16px;
   color: #191919;
-  background-color: #c343ea;
+  background-color: #c343ea8a;
   border-radius: 20px;
   padding: 24px;
   font-family: 'Roboto';

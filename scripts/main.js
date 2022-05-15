@@ -19,6 +19,24 @@ const books = [ // Книги на складе
         price: 210,
         amount: 1
     },
+    {
+        id: 4,
+        name: 'Искусство программирования, Д.Кнут',
+        price: 210,
+        amount: 1
+    },
+    {
+        id: 5,
+        name: 'Искусство программирования, Д.Кнут',
+        price: 210,
+        amount: 1
+    },
+    {
+        id: 6,
+        name: 'Искусство программирования, Д.Кнут',
+        price: 210,
+        amount: 1
+    },
 ]
 
 
@@ -151,4 +169,37 @@ Array.from(bookBuyButtons).map(bookBuyButton => {
 
         updateAccount()
     })
+})
+
+
+// ---------------------------------------Адаптив--------------------------------------- 
+const burger = document.querySelector(".burger")
+
+const width = document.documentElement.clientWidth
+const height = document.documentElement.clientHeight
+
+adaptive(width, height)
+
+function adaptive(width, height) {
+    if (width <= 1130) {
+        if (!account.classList.contains("hidden")) account.classList.add("hidden")
+        burger.style.display = "flex"
+        burger.classList.remove("change")
+        account.style.marginRight = "40px"
+    } else if (width > 1130) {
+        account.classList.remove("hidden")
+        burger.style.display = "none"
+        account.style.marginRight = "0"
+    }
+}
+
+window.addEventListener("resize", () => {
+    const width = document.documentElement.clientWidth
+    const height = document.documentElement.clientHeight
+    adaptive(width, height)
+})
+
+burger.addEventListener("click", () => {
+    account.classList.toggle("hidden")
+    burger.classList.toggle("change")
 })
