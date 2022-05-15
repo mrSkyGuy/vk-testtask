@@ -88,7 +88,7 @@ function updateCatalogBook() {
                 <div class="book__price">Цена: <span>${book.price}</span>₽</div>
                 <div class="book__amount">Осталось: <span>${book.amount}</span></div>
             </div>
-            <button class="book__buy">Купить</but>
+            ${ book.amount > 0 ? '<button class="book__buy">Купить</but>' : "" }
         `
         catalogBooks.append(catalogBook)
     })
@@ -146,6 +146,9 @@ Array.from(bookBuyButtons).map(bookBuyButton => {
         book.amount-- 
         catalogBook.querySelector(".book__amount > span").textContent = book.amount
 
-        updateAccount()   
+        // Спрячем кнопку "Купить", если книг не осталось на складе
+        if (book.amount <= 0) bookBuyButton.style.display = "none" 
+
+        updateAccount()
     })
 })
